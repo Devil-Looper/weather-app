@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Weather app</title>
+</head>
+<body>
+    <div class="hk">
+        <h1>Weather Web APP </h1>
+    Enter city : <input type="text"  id="Weather" ><br>
+<button onclick="weather()"> Result</button>
+<p id="result"></p>
+</div>
+<script>
+    function weather(){
+        const cityname=document.getElementById("Weather").value;
+        
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=8c5a3fff23f7549950f3d61b7ccfd20f&units=metric`)
+  .then(function (response) {
+    // handle success
+    console.log(response.data.main.temp);
+document.getElementById("result").innerHTML=response.data.main.temp;  
+})
+    }
+
+
+    function post(){
+        axios.post('/', {
+    firstName: '',
+    
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+    }
+</script>
+</body>
+</html>
+
+<!-- 8c5a3fff23f7549950f3d61b7ccfd20f -->
